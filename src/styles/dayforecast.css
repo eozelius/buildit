@@ -1,0 +1,16 @@
+.day-forecast {
+  width: 20%;
+  border: 1px solid #ccc;
+}
+
+span.day-low {
+  color: #72a6f9;
+}
+
+span.day-high {
+  color: #f94440;
+}
+
+p.day-description {
+  text-transform: capitalize;
+}

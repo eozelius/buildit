@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './styles/forecast.css'
 import Api from './Api'
+import DayForecast from './DayForecast'
+import './styles/forecast.css'
 
 class Forecast extends Component {
   constructor(props){
@@ -16,23 +18,27 @@ class Forecast extends Component {
   }
 
   render() {
+    const days = []
+    const location = this.state.forecast ? this.state.forecast.city.name : ''
+
     if(this.state.forecast){
       const myForecast = this.state.forecast.list.slice(0)
-      console.log(myForecast)
-      window.e = myForecast
 
-      for(let i = 0; i < myForecast.length; i += 7){
-        // const day = myForecast.splice(0, 8)
-        //console.log('day')
-        //console.log(day)
+      while(myForecast.length > 0){
+        days.push(myForecast.splice(0,8))
       }
     }
 
+    const renderedDays = days.map((day, index) => <DayForecast hours={day} key={index} />)
+
     return (
-      <div className="forcast">
-        Forecast placeholer        
+      <div className='forecast-container'>
+        <h2>{location}</h2>
+        <div className="forcast">
+          { renderedDays }
+        </div>
       </div>
-    );
+    )
   }
 }
 
