@@ -9,13 +9,18 @@ class Forecast extends Component {
     super(props)
     this.state = {
       forecast: null,
-      activeDay: null,
+      activeDay: 0,
     }
   }
 
   componentDidMount(){
-    const forecast = Api.fetchForecast()
-    this.setState({ forecast: forecast })
+    Api.fetchForecast()
+      .then((forecast) => {
+        this.setState({ forecast: forecast })
+      })
+      .catch((error) => {
+        console.log(`Error => ${error}`)
+      })
   }
 
   revealHourly = (day) => {

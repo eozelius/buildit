@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import HourForecast from './HourForecast'
 import './styles/dayforecast.css'
-import png_clearSky from './images/Clear Sky.png'
+import weatherIcon from './util/weatherIcon'
 
 class DayForecast extends Component {
   getDate = () => {
@@ -18,7 +18,7 @@ class DayForecast extends Component {
       }
     })
 
-    return Math.round(currentLow)
+    return currentLow.toFixed(0)
   }
 
   getHigh = () => {
@@ -30,7 +30,7 @@ class DayForecast extends Component {
       }
     })
 
-    return Math.round(currentHigh)
+    return currentHigh.toFixed(0)
   }
 
   getDescription = () => {
@@ -38,13 +38,17 @@ class DayForecast extends Component {
   }
 
   getRain = () => {
-    return this.props.hours.reduce((rainSum, hour) => {
-      if(hour.rain['3h']){
-        return rainSum + hour.rain['3h']
-      } else {
-        return rainSum
-      }
-    }, 0).toFixed(2)
+    const rain = this.props.hours.reduce((rainSum, hour) => {
+      if(!hour.rain) { return rainSum }
+      if(!hour.rain['3h']){ return rainSum }
+      return rainSum + hour.rain['3h']
+    }, 0)
+
+    if(!rain){
+      return 0
+    } else {
+      return rain.toFixed(2)
+    }
   }
 
   render(){
@@ -55,17 +59,11 @@ class DayForecast extends Component {
     const rain = this.getRain()
     const hourlyListings = this.props.hours.map((hour, index) => <HourForecast hour={hour} key={index} />)
 
-    console.log('state')
-    console.log(this.state)
-
     return (
       <div className={`day-forecast ${this.props.active}`}>
         <p>{date}</p>
 
-        <p>
-          <img src={png_clearSky} />
-
-        </p>
+        <img src={weatherIcon(description)} alt={`${description}`} />
         <p>
           <span className='day-low'>{low}&deg;</span> / <span className='day-high'>{high}&#8457;</span>
         </p>

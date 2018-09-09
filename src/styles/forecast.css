@@ -1,6 +1,6 @@
 .forcast {
   width: 95%;
-  height: 460px;
   display: flex;
+  overflow: hidden;
   margin: 0 auto 10%;
 }
