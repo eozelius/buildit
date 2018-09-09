@@ -8,13 +8,25 @@ class Forecast extends Component {
   constructor(props){
     super(props)
     this.state = {
-      forecast: null
+      forecast: null,
+      activeDay: null,
     }
   }
 
   componentDidMount(){
     const forecast = Api.fetchForecast()
     this.setState({ forecast: forecast })
+  }
+
+  revealHourly = (day) => {
+    if(day === this.state.activeDay){
+      this.setState({ activeDay: null })
+      return
+    }
+
+    this.setState({
+      activeDay: day
+    })
   }
 
   render() {
@@ -29,7 +41,7 @@ class Forecast extends Component {
       }
     }
 
-    const renderedDays = days.map((day, index) => <DayForecast hours={day} key={index} />)
+    const renderedDays = days.map((day, index) => <DayForecast hours={day} day={index} revealHourly={this.revealHourly} active={this.state.activeDay === index ? 'active' : ''} key={index} />)
 
     return (
       <div className='forecast-container'>

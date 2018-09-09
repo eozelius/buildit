@@ -1,6 +1,15 @@
 .day-forecast {
-  width: 20%;
+  flex: 1;
   border: 1px solid #ccc;
+  transition: transform 0.5s;
+  transition: flex 0.7s 
+}
+
+.day-forecast.active {
+  flex: 2;
+  transition: transform 0.5s;
+  
+  transition: flex 0.7s 
 }
 
 span.day-low {
@@ -14,3 +23,16 @@ span.day-high {
 p.day-description {
   text-transform: capitalize;
 }
+
+p.hourly-link {
+  cursor: pointer;
+}
+
+.hourly-listings {
+  display: none;
+}
+
+.active .hourly-listings{
+  display: block;
+}
+
