@@ -41,6 +41,7 @@ class Forecast extends Component {
 
     return (
       <div className='forecast-container'>
+        <input type='hidden' value={this.props.forecast} />
         <h2>{location}</h2>
         <div className="forcast">
           { renderedDays }
