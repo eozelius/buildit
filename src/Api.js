@@ -1,4 +1,5 @@
 import axios from 'axios'
+// import mock_data from './mock_data/mock_5day'
 
 export default class Api {
   static fetchForecast(cityId = 5128638){
@@ -10,5 +11,9 @@ export default class Api {
       .catch((error) => {
         console.log('error ' + error)
       })
+
+    // Use this to return Mock data for testing
+    // return new Promise((resolve, reject) => resolve(JSON.parse(mock_data))) 
+    // Dont forget to import mock_data
   }
 }

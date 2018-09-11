@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
-import Forecast from './Forecast'
+import ForecastContainer from './containers/ForecastContainer'
 
 class App extends Component {
   render() {
@@ -9,10 +9,10 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Buildit 5 day forecast!</h1>
         </header>
-        <Forecast />
+        <ForecastContainer />
       </div>
     );
   }
 }
 
-export default App;
+export default App

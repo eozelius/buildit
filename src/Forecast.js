@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './styles/forecast.css'
-import Api from './Api'
 import DayForecast from './DayForecast'
 import './styles/forecast.css'
 
@@ -8,19 +7,8 @@ class Forecast extends Component {
   constructor(props){
     super(props)
     this.state = {
-      forecast: null,
       activeDay: 0,
     }
-  }
-
-  componentDidMount(){
-    Api.fetchForecast()
-      .then((forecast) => {
-        this.setState({ forecast: forecast })
-      })
-      .catch((error) => {
-        console.log(`Error => ${error}`)
-      })
   }
 
   revealHourly = (day) => {
@@ -36,17 +24,20 @@ class Forecast extends Component {
 
   render() {
     const days = []
-    const location = this.state.forecast ? this.state.forecast.city.name : ''
+    const location = this.props.forecast ? this.props.forecast.city.name : ''
 
-    if(this.state.forecast){
-      const myForecast = this.state.forecast.list.slice(0)
+    if(this.props.forecast){
+      const myForecast = this.props.forecast.list.slice(0)
 
       while(myForecast.length > 0){
         days.push(myForecast.splice(0,8))
       }
     }
 
-    const renderedDays = days.map((day, index) => <DayForecast hours={day} day={index} revealHourly={this.revealHourly} active={this.state.activeDay === index ? 'active' : ''} key={index} />)
+    const renderedDays = days.map((day, index) => 
+      <DayForecast hours={day} day={index} revealHourly={this.revealHourly} 
+                   active={this.state.activeDay === index ? 'active' : ''} key={index} />
+    )
 
     return (
       <div className='forecast-container'>
