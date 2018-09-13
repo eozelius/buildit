@@ -17,9 +17,10 @@ All code resides in the **src** dir
 
 - Components
 I created 3 components for this project, all can be found in **src** dir.
-  - `Forecast` - Stateful component that receives Forecast JSON from API, parses that data into daily chucks and passes each day's data down to `DayForecast` via props.
-  - `DayForecast` - Stateless Component that renders one day's forecast.
-  - `HourForecast` - Stateless Component that renders a 3 hour forecast
+  - `ForecastContainer` - Connected Redux component that dispatches an action to fetch forecast data, and will pass that data down to `Forecast`
+  - `Forecast` - Presentational component that receives Forecast data from ForecastContainer, parses that data into daily chucks and passes each day's data down to `DayForecast` via props.
+  - `DayForecast` - Presentational Component that renders one day's forecast.
+  - `HourForecast` - Presentational Component that renders a 3 hour forecast
 
 - Styles
 I created a Stylesheet for each component, that can be found in **src/styles**
@@ -37,5 +38,5 @@ I saved a JSON response from openweathermap.org and used this data for developin
 ### Design Decisions
   - Making Api requests to openweathermap.org - I abstracted all api requests to a single file so that none of my react components are dependent on the data source.  They only expect the data structure to have certain properties.
 
+  - Redux - I implemented redux to be the single source of data for the application.  I also used Thunk in my redux actions to keep the actions pure.
 
-  - No redux - Ideally, my Forecast component would actually be a redux module that would be the store for all forecast data.  But it seemed overkill to use redux given that I'm making a single Api GET request onLoad and not mutating any data.  If the need arose to do more complex fetching or mutating data I could easily make `Forecast.js` a redux component. 
