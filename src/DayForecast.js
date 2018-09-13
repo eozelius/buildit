@@ -18,6 +18,8 @@ class DayForecast extends Component {
       }
     })
 
+    console.log(currentLow)
+
     return currentLow.toFixed(0)
   }
 

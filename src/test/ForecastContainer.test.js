@@ -10,7 +10,7 @@ import Api from '../Api'
 // import * as Actions from '../actions'
 import {forecastReducer} from '../reducer'
 
-describe('ForecastContainer', () => {
+describe('ForecastContainer Connected Component', () => {
   let store
   let promise
 
