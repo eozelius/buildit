@@ -14,7 +14,7 @@ class ForecastContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  forecast: state.forecastReducer.forecast
+  forecast: state.forecast
 })
 
 const mapDispatchToProps = dispatch => ({

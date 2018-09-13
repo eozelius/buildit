@@ -24,9 +24,9 @@ class Forecast extends Component {
 
   render() {
     const days = []
-    const location = this.props.forecast ? this.props.forecast.city.name : ''
+    const location = this.props.forecast && this.props.forecast.city ? this.props.forecast.city.name : ''
 
-    if(this.props.forecast){
+    if(this.props.forecast && this.props.forecast.list){
       const myForecast = this.props.forecast.list.slice(0)
 
       while(myForecast.length > 0){
@@ -41,7 +41,6 @@ class Forecast extends Component {
 
     return (
       <div className='forecast-container'>
-        <input type='hidden' value={this.props.forecast} />
         <h2>{location}</h2>
         <div className="forcast">
           { renderedDays }

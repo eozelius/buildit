@@ -885,6 +885,14 @@ babel-plugin-transform-strict-mode@^6.24.1:
     babel-runtime "^6.22.0"
     babel-types "^6.24.1"
 
+babel-polyfill@^6.8.0:
+  version "6.26.0"
+  resolved "https://registry.yarnpkg.com/babel-polyfill/-/babel-polyfill-6.26.0.tgz#379937abc67d7895970adc621f284cd966cf2153"
+  dependencies:
+    babel-runtime "^6.26.0"
+    core-js "^2.5.0"
+    regenerator-runtime "^0.10.5"
+
 babel-preset-env@1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/babel-preset-env/-/babel-preset-env-1.6.1.tgz#a18b564cc9b9afdf4aae57ae3c1b0d99188e6f48"
@@ -4329,6 +4337,10 @@ lodash.isequal@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
 
+lodash.isplainobject@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
+
 lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
@@ -4350,7 +4362,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-"lodash@>=3.5 <5", lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0:
+"lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
 
@@ -5891,6 +5903,19 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "^0.4.2"
 
+redux-mock-store@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/redux-mock-store/-/redux-mock-store-1.5.3.tgz#1f10528949b7ce8056c2532624f7cafa98576c6d"
+  dependencies:
+    lodash.isplainobject "^4.0.6"
+
+redux-testkit@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/redux-testkit/-/redux-testkit-1.0.6.tgz#58b2b389455be927a4eff796060a17eee89d9393"
+  dependencies:
+    babel-polyfill "^6.8.0"
+    lodash "^4.0.0"
+
 redux-thunk@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
@@ -5905,6 +5930,10 @@ redux@^4.0.0:
 regenerate@^1.2.1:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/regenerate/-/regenerate-1.4.0.tgz#4a856ec4b56e4077c557589cae85e7a4c8869a11"
+
+regenerator-runtime@^0.10.5:
+  version "0.10.5"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.10.5.tgz#336c3efc1220adcedda2c9fab67b5a7955a33658"
 
 regenerator-runtime@^0.11.0:
   version "0.11.1"
