@@ -35,14 +35,18 @@ class Forecast extends Component {
     }
 
     const renderedDays = days.map((day, index) => 
-      <DayForecast hours={day} day={index} revealHourly={this.revealHourly} 
-                   active={this.state.activeDay === index ? 'active' : ''} key={index} />
+      <DayForecast
+        hours={day}
+        day={index}
+        revealHourly={this.revealHourly} 
+        active={this.state.activeDay === index ? 'active' : ''}
+        key={index} />
     )
 
     return (
       <div className='forecast-container'>
         <h2>{location}</h2>
-        <div className="forcast">
+        <div className="forecast">
           { renderedDays }
         </div>
       </div>

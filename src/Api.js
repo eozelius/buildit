@@ -13,7 +13,6 @@ export default class Api {
       })
 
     // Use this to return Mock data for testing
-    // return new Promise((resolve, reject) => resolve(JSON.parse(mock_data))) 
-    // Dont forget to import mock_data
+    // return new Promise((resolve) => resolve(JSON.parse(mock_data))) 
   }
 }

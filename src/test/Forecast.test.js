@@ -38,7 +38,7 @@ describe('Forecast Presentational Component', () => {
     shallow(<Forecast />)
   })
 
-  it('receives forcast data via props', () => {
+  it('receives forecast data via props', () => {
     const wrapper = mount(<Forecast forecast={mock_forecast} />)
     expect(wrapper.prop('forecast')).toEqual(mock_forecast)
   })

@@ -41,3 +41,19 @@
   transition: transform 0.5s;
   transition: flex 0.7s 
 }
+
+@media screen and (max-width: 550px) {
+  .day-forecast h3 {
+    font-size: 2em;
+  }
+
+  .day-forecast h4 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #616a78;
+  }
+
+  .day-forecast img {
+    width: 60%;
+  }
+}

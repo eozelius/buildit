@@ -63,14 +63,14 @@ class DayForecast extends Component {
 
     return (
       <div className={`day-forecast ${this.props.active}`}>
-        <p>{date}</p>
+        <h3>{date}</h3>
 
         <img src={weatherIcon(description)} alt={`${description}`} />
         <p>
           <span className='day-low'>{low}&deg;</span> / <span className='day-high'>{high}&#8457;</span>
         </p>
 
-        <p className='day-description'>{description}</p>
+        <h4 className='day-description'>{description}</h4>
 
         <p className='rain'>rain: {rain}</p>
 
